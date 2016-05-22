@@ -1,1 +1,5 @@
-{{yield}}
+<div style="height: 100%; overflow: auto;">
+    {{#each users as |user|}}
+        {{user-item user=user}}
+    {{/each}}
+</div>
