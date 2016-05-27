@@ -1,15 +1,15 @@
-<div className="container-fluid" style="position: absolute; top: 50px; left: 0; right: 0; bottom: 0;">
-    <div className="row" style="height: 100%">
+<div class="chat-room container-fluid">
+    <div class="row">
         
-        <div className="col-md-2" style="height: 100%; border-right: 1px solid; border-color: #e7e7e7">
+        <div class="user-column col-md-2">
             {{user-list users=users}}
         </div>
         
-        <div className="col-md-10" style="height: 100%">
-            <div style="position: absolute; top: 0px; left: 0; right: 0; bottom: 34;">
+        <div class="message-column col-md-10">
+            <div class="message-list-container">
                 {{message-list messages=messages}}
             </div>
-            <div style="position: absolute; left: 0; right: 0; bottom: 0;">
+            <div class="message-input-container">
                 {{message-input}}
             </div>
         </div>
