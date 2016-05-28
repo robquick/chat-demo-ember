@@ -2,6 +2,19 @@
     margin-bottom: 0px;
 }
 
+.login-form {
+    text-align: center; 
+    padding-top: 50px
+}
+
+.login-form label {
+    margin-right: 5px
+}
+
+.login-form button {
+    margin-right: 5px
+}
+
 .chat-room {
     position: absolute; 
     top: 50px; 
@@ -32,6 +45,11 @@
     bottom: 34;
 }
 
+.chat-room .message-list {
+    height: 100%; 
+    overflow: auto;
+}
+
 .chat-room .message-input-container {
     position: absolute; 
     left: 0; 
@@ -53,4 +71,15 @@
 .chat-room .message .msg-text {
     padding-bottom: 5px; 
     padding-left: 10px;
+}
+
+.chat-room .user-list {
+    height: 100%; 
+    overflow: auto;
+}
+
+.chat-room .user-item {
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    font-size: x-large
 }
