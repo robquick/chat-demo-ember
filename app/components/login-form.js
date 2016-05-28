@@ -9,9 +9,9 @@ export default Ember.Component.extend({
     },
     
     actions: {
-        save() {
+        onSubmit() {
             const userName = this.get("userName");
-            console.log(userName);
+            this.get("onLogin")(userName);
         }
     }
 });
