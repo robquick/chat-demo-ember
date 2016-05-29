@@ -23,7 +23,7 @@
     bottom: 0;
 }
 
-.chat-room > row {
+.chat-room > .row {
     height: 100%;
 }
 
