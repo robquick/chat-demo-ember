@@ -9,9 +9,10 @@ export default Ember.Component.extend({
     },
     
     actions: {
-        save() {
+        sendMessage() {
             const msgText = this.get("messageText");
-            console.log(msgText);
+            this.get("onSubmit")(msgText);
+            this.set("messageText", "");
         }
     }
 });

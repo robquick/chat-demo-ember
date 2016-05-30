@@ -18,6 +18,14 @@ export default Ember.Route.extend({
             users: this.store.findAll("user"),
             messages: this.store.findAll("message")
         });
+    },
+    
+    actions: {
+        sendMessage(text) {
+            const userName = this.get("session").get("userName");
+            const msg = this.store.createRecord("message", { userName, text });
+            return msg.save();
+        }
     }
     
 });

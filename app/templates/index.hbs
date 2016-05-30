@@ -1,1 +1,5 @@
-{{chat-room users=model.users messages=model.messages}}
+{{chat-room 
+    users=model.users 
+    messages=model.messages
+    submitMessage = (route-action "sendMessage")
+    }}
