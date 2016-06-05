@@ -11,7 +11,7 @@ export default Ember.Component.extend({
     actions: {
         sendMessage() {
             const msgText = this.get("messageText");
-            this.get("onSubmit")(msgText);
+            this.attrs.onSubmit(msgText);
             this.set("messageText", "");
         }
     }
