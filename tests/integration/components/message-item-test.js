@@ -6,19 +6,12 @@ moduleForComponent('message-item', 'Integration | Component | message item', {
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  const testMessage = { userName: "UN", text: "Hello World!" };
+  this.set("testMessage", testMessage);
 
-  this.render(hbs`{{message-item}}`);
+  this.render(hbs`{{message-item message=testMessage}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#message-item}}
-      template block text
-    {{/message-item}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  // Verify username and message text were populated
+  assert.equal(this.$(".user-name").text(), testMessage.userName, "Username is rendered correctly");
+  assert.equal(this.$(".msg-text").text(), testMessage.text, "Message text is rendered correctly");
 });

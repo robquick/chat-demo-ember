@@ -6,19 +6,19 @@ moduleForComponent('user-list', 'Integration | Component | user list', {
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{user-list}}`);
+  const testUsers = [
+    { name: "ABC" },
+    { name: "123" }
+  ];
+  this.set("testUsers", testUsers);
 
-  assert.equal(this.$().text().trim(), '');
+  this.render(hbs`{{user-list users=testUsers}}`);
 
-  // Template block usage:
-  this.render(hbs`
-    {{#user-list}}
-      template block text
-    {{/user-list}}
-  `);
+  // Verify 2 users were rendered
+  assert.equal(this.$(".user-item").length, 2, "Correct number of users rendered");
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  // Verify each user's name was rendered
+  assert.equal(this.$(".user-item:eq(0)").text().trim(), testUsers[0].name, "Username of user 1 rendered");
+  assert.equal(this.$(".user-item:eq(1)").text().trim(), testUsers[1].name, "Username of user 2 rendered");
 });

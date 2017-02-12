@@ -6,19 +6,23 @@ moduleForComponent('message-input', 'Integration | Component | message input', {
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  const testVal = "foo";
+  this.set("inputText", testVal);
 
-  this.render(hbs`{{message-input}}`);
+  // Test render
+  this.render(hbs`{{message-input messageText=inputText }}`);
+  assert.equal(this.$("input").val(), testVal, "Renders message text passed in");
+});
 
-  assert.equal(this.$().text().trim(), '');
+test("it should trigger onSubmit action on form submit", function(assert) {
+  const userEnteredText = "baz";
+  
+  this.set("submitAction", (messageText) => {
+    assert.equal(messageText, userEnteredText, "User input is passed to submit action");
+  });
 
-  // Template block usage:
-  this.render(hbs`
-    {{#message-input}}
-      template block text
-    {{/message-input}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  this.render(hbs`{{message-input onSubmit=(action submitAction)}}`);
+  this.$("input").val(userEnteredText);
+  this.$("input").change();
+  this.$("form").submit();
 });

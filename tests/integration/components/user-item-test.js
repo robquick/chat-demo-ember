@@ -6,19 +6,11 @@ moduleForComponent('user-item', 'Integration | Component | user item', {
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  const testUser = { name: "Dr. User Name, MD" };
+  this.set("testUser", testUser);
 
-  this.render(hbs`{{user-item}}`);
+  this.render(hbs`{{user-item user=testUser}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#user-item}}
-      template block text
-    {{/user-item}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$(".user-item").attr("title"), testUser.name, "Username set as title of div");
+  assert.equal(this.$(".user-item").text().trim(), testUser.name, "Username rendered as text within div");
 });
