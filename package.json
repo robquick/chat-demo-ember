@@ -1,14 +1,17 @@
 {
   "name": "chat-demo-ember",
   "version": "0.0.0",
-  "description": "Small description for chat-demo-ember goes here",
+  "description": "Simple app used to teach myself Ember/Firebase.",
   "license": "MIT",
-  "author": "",
+  "author": "Rob Quick",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robquick/chat-demo-ember.git"
+  },
   "scripts": {
     "build": "ember build",
     "start": "ember server",
