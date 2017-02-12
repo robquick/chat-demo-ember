@@ -4,14 +4,22 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'chat-demo-ember',
     environment: environment,
-    contentSecurityPolicy: { 'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com" },
-    firebase: 'https://chat-demo-ember.firebaseio.com/',
-    baseURL: '/',
+    rootURL: '/',
     locationType: 'auto',
+    firebase: {
+      apiKey: 'AIzaSyBwZHRJ_xXkJWJciXSFwL0tavEXNsqNSZU',
+      authDomain: 'chat-demo-ember.firebaseapp.com',
+      databaseURL: 'https://chat-demo-ember.firebaseio.com',
+      storageBucket: 'chat-demo-ember.appspot.com',
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
+      },
+      EXTEND_PROTOTYPES: {
+        // Prevent Ember Data from overriding Date.parse.
+        Date: false
       }
     },
 
@@ -31,7 +39,6 @@ module.exports = function(environment) {
 
   if (environment === 'test') {
     // Testem prefers this...
-    ENV.baseURL = '/';
     ENV.locationType = 'none';
 
     // keep test console output quieter
